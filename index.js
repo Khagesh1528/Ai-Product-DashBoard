@@ -9,7 +9,7 @@ const port = 8000;
 
 app.get('/api/metrics', async (req, res) => {
     try {
-        const metricsData = await fs.readFile('./data/metrics.json', 'utf-8');
+        const metricsData = await fs.readFile('./data/metrics.json');
         res.json(JSON.parse(metricsData));
     } catch (error) {
         res.status(500).json({ error: 'Error fetching metrics data' });
