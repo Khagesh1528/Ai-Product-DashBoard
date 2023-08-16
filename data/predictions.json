@@ -1,0 +1,7 @@
+{
+  "predictions": [
+    { "input": "data_point_1", "predicted": "class_A", "actual": "class_A" },
+    { "input": "data_point_2", "predicted": "class_B", "actual": "class_B" },
+    { "input": "data_point_3", "predicted": "class_A", "actual": "class_B" }
+  ]
+}
