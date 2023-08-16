@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
+const { generatePrediction } = require('./mockAI');
 
 const app = express();
 const port = 8000;
@@ -24,6 +25,20 @@ app.get('/api/predictions', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Error fetching predictions data' });
     }
+});
+
+
+// input Data
+app.post('/api/predictions', (req, res) => {
+    const inputData = req.body;
+    const prediction = generatePrediction(inputData);
+
+    const response = {
+        input: inputData,
+        prediction: prediction
+    };
+
+    res.json(response);
 });
 
 
